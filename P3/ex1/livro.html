@@ -1,0 +1,54 @@
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form de Registro com validações em JS</title>
+</head>
+<body>
+  <script type="text/javascript" src="controllerLivro.js"></script>
+<div ng-app="myApp" div ng-controller="myCtrl">
+  <div class="form-group">
+    <label for="idLivro">ID Livro:</label>
+    <input my-input="text" ng-model="idLivro" class="form-control" id="idLivro"
+            placeholder="Digite o ID">
+    <br/>
+</div>
+  <div class="form-group">
+    <label for="nomeLivro">Nome do Livro:</label>
+    <input my-input="text" ng-model="nomeLivro" class="form-control" id="nomeLivro"
+            placeholder="Digite o titulo">
+    <br/>
+</div>
+<div class="form-group">
+  <label for="autorLivro">Autor do Livro:</label>
+  <input my-input="text" ng-model="autorLivro" class="form-control" id="autorLivro"
+           placeholder="Digite o nome do Autor">
+    <br/>
+</div>
+<div class="form-group">
+  <label for="nomeLivro">Numero de páginas:</label>
+  <input my-input="text" ng-model="numeroPaginas" class="form-control" id="numeroPaginas"
+          placeholder="Digite quantidade de pag">
+</div>
+    <span my-output="numeroPaginas"></span>
+</div>
+<br/>
+<div class="full-box">
+  <input id="btn-submit" type="submit" value="Cadastrar Livro">
+  <script>
+  var model = {};
+    var input = document.querySelector('[my-input]');
+    var modelProperty = input.getAttribute('my-input');
+    input.addEventListener('keyup', function (e) {
+        model[modelProperty] = e.target.value; 
+    });
+  </script>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.idLivro = "";
+    $scope.tituloLivro = "";
+    $scope.autorLivro = "";
+    $scope.numeroPaginas = "";
+});
+</script>
